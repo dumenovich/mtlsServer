@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-// Simple HTTP server
+// Simple handler http-verb
 func echoMuxHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Request connection: %s, path: %s", r.Proto, r.URL.Path[1:])
 
@@ -33,10 +33,11 @@ func main() {
 		CurvePreferences:         []tls.CurveID{tls.CurveP521, tls.CurveP384, tls.CurveP256},
 		PreferServerCipherSuites: true,
 		CipherSuites: []uint16{
-			tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
-			tls.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
-			tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+			//			tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+			//			tls.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
+			//			tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
 			tls.TLS_RSA_WITH_AES_128_CBC_SHA,
+			tls.TLS_RSA_WITH_RC4_128_SHA,
 		},
 	}
 
